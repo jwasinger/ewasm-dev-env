@@ -19,4 +19,5 @@ docker run -d --network host -v $(pwd)/.ethash:/root/.ethash:Z -v $(pwd)/data:/d
 	--wsorigins '*' \
 	--password /keys/prefunded/prefunded-pw.txt \
 	--vm.ewasm="/root/libhera.so,metering=false" \
+    --allow-insecure-unlock \
  --vmodule "rpc=5,core/vm=5"

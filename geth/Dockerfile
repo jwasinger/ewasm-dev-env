@@ -16,7 +16,7 @@ ENV PATH="/usr/local/go/bin:${PATH}"
 # hera 0.2.3 and ewasm-go-ethereum ewasm branch on 5/9/2019
 RUN git clone https://github.com/ewasm/hera \
 	&& cd hera \
-	&& git reset 3a9b8cd5eda1d00205af1a14fca1dbfa0bddff9b --hard \
+	&& git reset d77f71e0619d1da90177201b75c4ff922e8c7f00 --hard \
 	&& git submodule update --init \
 	&& mkdir build \
 	&& cd build \
@@ -25,7 +25,7 @@ RUN git clone https://github.com/ewasm/hera \
 	&& cd ../.. \
 	&& git clone https://github.com/ewasm/go-ethereum \
 	&& cd go-ethereum \
-	&& git reset 2cbecfcb65d428bc5d0ac590a6e4f03f2c12173a --hard \
+	&& git reset f3528d2648c572f402a2ab75eb234a82fc639df4 --hard \
 	&& make -j2 \
 	&& cd .. \
 	&& cp go-ethereum/build/bin/geth /root/ \
