@@ -18,3 +18,5 @@ cd example
 npm install
 node index.js --wasm hello.wasm
 ``` 
+
+**Note** Make sure to delete the `geth/data` (if it exists) before restarting the client
