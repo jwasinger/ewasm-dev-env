@@ -37,15 +37,15 @@ function createTruffleConf(receipt, bytecode) {
 //let wasmBytecode = buf2hex(binaryen.readBinary(Uint8Array.from(fs.readFileSync(argv.wasm))).emitBinary()) //buf2hex(fs.readFileSync(argv.wasm));
 //let wasmBytecode = buf2hex(fs.readFileSync(argv.wasm))
 
-let wasmBytecode = buf2hex(fs.readFileSync(argv.wasm))
+let wasmBytecode = '0x'+buf2hex(fs.readFileSync(argv.wasm))
 
-let deploymentBytecode = '0x'+wasmBytecode
+let deploymentBytecode = wasmBytecode
 
 let nonce = web3.eth.getTransactionCount(DEPLOYMENT_ADDRESS).then (nonce => {
 	const txParams = {
 	  nonce: '0x'+nonce,
 	  gasPrice: '0x174876e8000', 
-	  gasLimit: '0x700000',
+	  gasLimit: '0x47b76',
 	  to: '',
 	  value: '', 
 	  data: deploymentBytecode,
