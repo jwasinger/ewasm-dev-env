@@ -2,10 +2,16 @@
 Automation for setting up a local Geth node with Ewasm support.
 
 ## Requirements
-* Docker installed on system
+* Docker, NodeJS installed on system
 
 ## Instructions
-* Run a geth node: `./run_node.sh`
+* Run a geth node:
+
+```
+(cd geth && docker build -t localhost/client-go:ewasm .)
+./run_node.sh
+```
+
 * Send an ewasm transaction to the node:
 ```
 cd example
