@@ -1,0 +1,12 @@
+sentinel:
+  file: "hello.wasm"
+  remapimports:
+    preset: "ewasm"
+  trimexports:
+    preset: "ewasm"
+  verifyexports:
+    preset: "ewasm"
+  verifyimports:
+    preset: "ewasm"
+  snip:
+    preset: "ewasm"
