@@ -13,9 +13,9 @@ RUN curl https://dl.google.com/go/go1.12.5.linux-amd64.tar.gz > go.tar.gz \
 
 ENV PATH="/usr/local/go/bin:${PATH}"
 
-# hera 0.2.3 and ewasm-go-ethereum ewasm branch on 5/9/2019
-RUN git clone https://github.com/ewasm/hera -b ewasm-testnet-milestone1 \
+RUN git clone https://github.com/ewasm/hera \
 	&& cd hera \
+    && git reset d77f71e0619d1da90177201b75c4ff922e8c7f00 --hard \
 	&& git submodule update --init \
 	&& mkdir build \
 	&& cd build \
