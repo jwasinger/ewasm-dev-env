@@ -12,11 +12,11 @@ Automation for setting up a local Geth node with Ewasm support.
 ./run_node.sh
 ```
 
-* Send an ewasm transaction to the node:
+* Send a transaction which creates a contract
 ```
 cd example
 npm install
-node index.js --wasm hello.wasm
+node index.js --wasm contraction-creation.wasm
 ``` 
 
 **Note** Make sure to delete the `geth/data` (if it exists) before restarting the client
