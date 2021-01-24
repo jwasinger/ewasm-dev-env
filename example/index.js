@@ -13,9 +13,31 @@ function buf2hex(buffer) { // buffer is an ArrayBuffer
 	return Array.prototype.map.call(new Uint8Array(buffer), x => ('00' + x.toString(16)).slice(-2)).join('');
 }
 
-let wasmBytecode = '0x'+buf2hex(fs.readFileSync(argv.wasm))
+function gen_contract_deployment(payload) {
+    if (payload.length % 64 != 0) {
+        payload = payload.slice(0, payload.length  - payload.length % 64) + "0".repeat(payload.length % 64) + payload.slice(-(payload.length - payload.length % 64), payload.length)
+    }
 
-let deploymentBytecode = wasmBytecode
+    deployment_bytecode = ""
+
+    for (let i = 0; i < payload.length; i += 64) {
+        deployment_bytecode += emit([gen_push(payload.slice(i, i + 64)),
+            gen_push(i),
+            gen_mstore()])
+    }
+
+    deployment_bytecode += emit([
+        gen_push(0),
+        gen_push(payload.length),
+        gen_return()
+    ])
+
+    return deployment_bytecode
+}
+
+let deploymentPayload = '0x'+buf2hex(fs.readFileSync(argv.contract))
+
+let deploymentBytecode = gen_contract_deployment(deploymentPayload)
 
 let nonce = web3.eth.getTransactionCount(prefundedAddress).then (nonce => {
 	const txParams = {
