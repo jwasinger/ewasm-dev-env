@@ -1,5 +1,5 @@
 # ewasm-dev-env
-Automation for setting up a local Geth node with Ewasm support.
+Automation for setting up a local Geth node with EVM384 "v10" enabled.
 
 ## Requirements
 * Docker, NodeJS installed on system
@@ -8,7 +8,6 @@ Automation for setting up a local Geth node with Ewasm support.
 * Run a geth node:
 
 ```
-(cd geth && docker build -t localhost/client-go:ewasm .)
 ./run_node.sh
 ```
 
@@ -16,7 +15,7 @@ Automation for setting up a local Geth node with Ewasm support.
 ```
 cd example
 npm install
-node index.js --wasm contraction-creation.wasm
+node index.js
 ``` 
 
 **Note** Make sure to delete the `geth/data` (if it exists) before restarting the client
