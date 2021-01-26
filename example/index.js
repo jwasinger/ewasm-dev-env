@@ -31,15 +31,19 @@ function gen_contract_deployment(payload) {
     }
 
     deployment_bytecode += emit([
-        gen_return("0", payload.length.toString(16))
+        gen_return("0", payload.length)
     ])
 
     return deployment_bytecode
 }
 
-let deploymentPayload = '0x'+fs.readFileSync('mimc_cipher.hex', 'utf-8')
+// let deploymentPayload = '0x'+fs.readFileSync('mimc_cipher.hex', 'utf-8')
+
+let deploymentPayload = 'ffaa'
 
 let deploymentBytecode = gen_contract_deployment(deploymentPayload)
+
+debugger
 
 let nonce = web3.eth.getTransactionCount(prefundedAddress).then (nonce => {
 	const txParams = {

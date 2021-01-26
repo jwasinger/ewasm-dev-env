@@ -1,7 +1,7 @@
 #! /bin/bash
 set -e
 
-docker run -d --network host -v $(pwd)/.ethash:/root/.ethash:Z -v $(pwd)/data:/data -v $(pwd)/keys:/keys -t jwasinger/go-ethereum:evm384-v7-mulmodmont-naive \
+docker run --network host -v $(pwd)/.ethash:/root/.ethash:Z -v $(pwd)/data:/data -v $(pwd)/keys:/keys -t jwasinger/go-ethereum:evm384-v7-mulmodmont-naive \
 	--etherbase $(cat keys/prefunded/prefunded-addr.txt) \
 	--mine \
 	--miner.threads 1 \
@@ -16,4 +16,4 @@ docker run -d --network host -v $(pwd)/.ethash:/root/.ethash:Z -v $(pwd)/data:/d
 	--rpccorsdomain '*' \
 	--password /keys/prefunded/prefunded-pw.txt \
     --allow-insecure-unlock \
-	--vm.ewasm="/root/libhera.so,metering=true"
+	--vm.ewasm="/root/libhera.so,metering=true" console
