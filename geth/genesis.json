@@ -10,7 +10,6 @@
     "constantinopleBlock": 0,
     "istanbulBlock": 0,
     "petersburgBlock": 0,
-    "evm384Block": 0,
     "ethash": {}
   },
   "nonce": "0x0",

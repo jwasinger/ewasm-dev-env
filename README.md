@@ -1,8 +1,7 @@
-# ewasm-dev-env
-Automation for setting up a local Geth node with EVM384 "v10" enabled.
+Reproduces https://github.com/trufflesuite/truffle/issues/3437
 
 ## Requirements
-* Docker, NodeJS installed on system
+* Docker installed on system
 
 ## Instructions
 * Run a geth node:
@@ -11,11 +10,7 @@ Automation for setting up a local Geth node with EVM384 "v10" enabled.
 ./run_node.sh
 ```
 
-* Send a transaction which creates a contract
+* initiate migration of metacoin example:
 ```
-cd example
-npm install
-node index.js
-``` 
-
-**Note** Make sure to delete the `geth/data` (if it exists) before restarting the client
+cd MetaCoin && npx truffle migrate
+```  

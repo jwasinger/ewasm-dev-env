@@ -13,8 +13,7 @@ RUN curl https://dl.google.com/go/go1.15.7.linux-amd64.tar.gz > go.tar.gz \
 
 ENV PATH="/usr/local/go/bin:${PATH}"
 
-# hera 0.2.3 and ewasm-go-ethereum ewasm branch on 5/9/2019
-RUN git clone https://github.com/jwasinger/go-ethereum -b evm384-v7-mulmodmont-naive \
+RUN git clone https://github.com/ethereum/go-ethereum \
 	&& cd go-ethereum \
 	&& make -j2 \
 	&& cd .. \

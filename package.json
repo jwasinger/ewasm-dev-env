@@ -1,0 +1,27 @@
+{
+  "name": "ewasm-dev-env",
+  "version": "1.0.0",
+  "description": "Automation for setting up a local Geth node with EVM384 \"v10\" enabled.",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jwasinger/ewasm-dev-env.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jwasinger/ewasm-dev-env/issues"
+  },
+  "homepage": "https://github.com/jwasinger/ewasm-dev-env#readme",
+  "dependencies": {
+    "@truffle/hdwallet-provider": "^1.2.1",
+    "truffle": "5.1.65"
+  }
+}
